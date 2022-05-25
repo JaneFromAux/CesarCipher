@@ -6,14 +6,38 @@ let arrKlarAbc = [{ letter: "a" }, { letter: "b" }, { letter: "c" }, { letter: "
 
 const caesarCipher = () => {
     let zeichenVal = zeichen.value;
-    for (let k = 0; k < Number(zeichenVal.length); k++) {
-        for (let i = 0; i < Number(arrKlarAbc.length); i++) {
-            if (zeichenVal[k] == arrKlarAbc[i].letter) {
-                console.log(arrKlarAbc[i + Number(schlussel.value)].letter.toUpperCase());
-                output.innerHTML += arrKlarAbc[i + Number(schlussel.value)].letter.toUpperCase();
+    output.innerHTML = " ";
+    if (Number(zeichenVal.length) == 0 || Number((schlussel.value).length) == 0) {
+        output.innerHTML = "Bitte Eingabefelder ausfüllen";
+    }
+    else {
+        output.innerHTML = " ";
+        for (let k = 0; k < Number(zeichenVal.length); k++) {
+            for (let i = 0; i < Number(arrKlarAbc.length); i++) {
+                if (zeichenVal[k] == arrKlarAbc[i].letter) {
+                    console.log(arrKlarAbc[i + Number(schlussel.value)].letter.toUpperCase());
+                    output.innerHTML += arrKlarAbc[i + Number(schlussel.value)].letter.toUpperCase() + " ";
+                }
             }
         }
     }
 }
 
-
+let caesarCipher2 = () => {
+    let zeichenVal = zeichen.value.toLowerCase();
+    output.innerHTML = " ";
+    output.innerHTML = " ";
+    if (Number(zeichenVal.length) == 0 || Number((schlussel.value).length) == 0) {
+        output.innerHTML = "Bitte Eingabefelder ausfüllen";
+    }
+    else {
+        for (let k = 0; k < Number(zeichenVal.length); k++) {
+            for (let i = 0; i < Number(arrKlarAbc.length); i++) {
+                if (zeichenVal[k] == arrKlarAbc[i].letter) {
+                    console.log(arrKlarAbc[i - Number(schlussel.value)].letter);
+                    output.innerHTML += arrKlarAbc[i - Number(schlussel.value)].letter + " ";
+                }
+            }
+        }
+    }
+}
